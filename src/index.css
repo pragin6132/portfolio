@@ -1,0 +1,773 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #2563EB;     /* Premium Blue Accent */
+  --color-secondary: #3B82F6;   /* Light Blue Accent */
+  --color-accent: #1D4ED8;      /* Dark Blue Accent */
+  --color-dark-bg: #FFFFFF;     /* Soft White Background */
+  
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Outfit", system-ui, -apple-system, sans-serif;
+  
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-spin-slow: spin 20s linear infinite;
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(37, 99, 235, 0.2);
+  border-radius: 4px;
+  border: 2px solid #FFFFFF;
+  transition: background 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(37, 99, 235, 0.5);
+}
+
+/* Lenis Smooth Scroll Setup (Premium, Smooth, No Bouncing, No Lag) */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overflow: clip;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid #E5E7EB !important;
+  border-radius: 24px !important;
+  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.08) !important;
+}
+
+.glass-panel-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Hover Animations - translateY(-6px) & soft shadow increase */
+.glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: #2563EB !important;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12) !important;
+  transform: translateY(-6px) !important;
+}
+
+/* Glowing Border Card (now themed white with shadow) */
+.glow-card {
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 24px !important;
+  background: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid #E5E7EB !important;
+  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.08) !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.glow-card::before {
+  display: none !important; /* Remove colored neon borders */
+}
+
+/* Hover Animations - translateY(-6px) & soft shadow increase */
+.glow-card:hover {
+  border-color: rgba(37, 99, 235, 0.4) !important;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12) !important;
+  transform: translateY(-6px) !important;
+}
+
+/* Text Gradients */
+.text-gradient-primary {
+  background: linear-gradient(135deg, #111827 30%, #2563EB 70%, #1D4ED8 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.text-gradient-secondary {
+  background: linear-gradient(135deg, #2563EB 0%, #3B82F6 50%, #1E40AF 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.text-gradient-white {
+  background: linear-gradient(to right, #111827, #4B5563) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Custom Cursor Styles */
+html,
+body,
+* {
+  cursor: none !important;
+}
+
+@media (hover: none) {
+  html,
+  body,
+  * {
+    cursor: auto !important;
+  }
+}
+
+/* Custom Cursor overlay - Small 8px circle, color #111827, very subtle shadow only */
+div.fixed.top-0.left-0.w-4.h-4.pointer-events-none.z-\[999999\] {
+  width: 8px !important;
+  height: 8px !important;
+  background-color: #111827 !important;
+  box-shadow: 0 1px 4px rgba(17, 24, 39, 0.2) !important;
+}
+
+/* Timeline Custom Styles */
+.timeline-line {
+  background: linear-gradient(to bottom, #2563EB, #3B82F6, transparent) !important;
+}
+
+.border-l.border-white\/10 {
+  border-left-color: #E5E7EB !important;
+}
+
+/* Timeline node points */
+.absolute.rounded-full.bg-\[\#050816\] {
+  background-color: #FFFFFF !important;
+  border-color: #2563EB !important;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.15) !important;
+}
+
+.absolute.rounded-full.bg-\[\#050816\]:hover,
+.relative.group:hover .absolute.rounded-full.bg-\[\#050816\] {
+  border-color: #1D4ED8 !important;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3) !important;
+}
+
+/* Timeline badges */
+.text-primary.bg-primary\/10.border-primary\/20 {
+  background-color: rgba(37, 99, 235, 0.08) !important;
+  border-color: rgba(37, 99, 235, 0.2) !important;
+  color: #2563EB !important;
+}
+
+/* Coursework tags */
+.px-3.py-1.rounded-full.bg-primary\/10.border-primary\/20 {
+  background-color: rgba(37, 99, 235, 0.08) !important;
+  border-color: rgba(37, 99, 235, 0.2) !important;
+  color: #2563EB !important;
+}
+
+/* Section Header Style */
+.section-header-underline {
+  height: 4px;
+  width: 80px;
+  background: linear-gradient(90deg, #2563EB, #3B82F6) !important;
+  border-radius: 2px;
+}
+
+/* Background Overrides - Soft white and clean premium gradient background */
+div.fixed.inset-0.-z-10 {
+  background: #FFFFFF !important;
+  background-image: radial-gradient(at 50% 50%, rgba(248, 250, 252, 0.8) 0px, transparent 100%) !important;
+}
+
+/* Hide background Canvas to completely remove space particles/dots */
+div.fixed.inset-0.-z-10 canvas {
+  display: none !important;
+}
+
+/* General Typography & Color Overrides */
+body {
+  background-color: #FFFFFF !important;
+  color: #111827 !important;
+}
+
+.text-white {
+  color: #111827 !important;
+}
+
+.text-white\/95 {
+  color: #111827 !important;
+}
+
+.text-white\/90 {
+  color: #1F2937 !important;
+}
+
+.text-white\/80 {
+  color: #374151 !important;
+}
+
+.text-white\/75 {
+  color: #4B5563 !important;
+}
+
+.text-white\/70 {
+  color: #4B5563 !important;
+}
+
+.text-white\/60 {
+  color: #6B7280 !important;
+}
+
+.text-white\/50 {
+  color: #8E98A5 !important;
+}
+
+.text-white\/40 {
+  color: #9CA3AF !important;
+}
+
+.text-white\/30 {
+  color: #D1D5DB !important;
+}
+
+.text-white\/20 {
+  color: #E5E7EB !important;
+}
+
+.text-white\/10 {
+  color: #E5E7EB !important;
+}
+
+/* Primary Button (bg-gradient-to-r from-primary to-accent) - Hover: scale(1.03) */
+.bg-gradient-to-r.from-primary.to-accent {
+  background: linear-gradient(135deg, #2563EB, #3B82F6) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.2) !important;
+  border: none !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease !important;
+}
+
+.bg-gradient-to-r.from-primary.to-accent * {
+  color: #FFFFFF !important;
+}
+
+.bg-gradient-to-r.from-primary.to-accent:hover {
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35) !important;
+  transform: scale(1.03) !important;
+}
+
+/* Secondary Button (border-white/10 bg-white/5) - Hover: scale(1.03) */
+.border-white\/10.bg-white\/5 {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E5E7EB !important;
+  color: #111827 !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease !important;
+}
+
+.border-white\/10.bg-white\/5:hover {
+  background-color: #FFFFFF !important;
+  border-color: #2563EB !important;
+  color: #2563EB !important;
+  transform: scale(1.03) !important;
+}
+
+/* Navbar overrides */
+nav.fixed {
+  background-color: rgba(255, 255, 255, 0.75) !important;
+  border-bottom: 1px solid rgba(229, 231, 235, 0.5) !important;
+  box-shadow: 0 4px 30px rgba(15, 23, 42, 0.04) !important;
+}
+
+nav.fixed a.font-display {
+  color: #111827 !important;
+}
+
+nav.fixed a.font-display span.text-white {
+  color: #111827 !important;
+}
+
+nav.fixed a.font-sans,
+nav.fixed button {
+  color: #6B7280 !important;
+}
+
+nav.fixed a.font-sans:hover,
+nav.fixed button:hover {
+  color: #2563EB !important;
+}
+
+nav.fixed a.font-sans.text-secondary {
+  color: #2563EB !important;
+}
+
+/* Navbar mobile menu drawer */
+nav.fixed div.fixed {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-left: 1px solid rgba(229, 231, 235, 0.5) !important;
+  box-shadow: 0 0 50px rgba(15, 23, 42, 0.08) !important;
+}
+
+nav.fixed div.fixed a {
+  color: #6B7280 !important;
+}
+
+nav.fixed div.fixed a.text-secondary {
+  color: #2563EB !important;
+  border-left-color: #2563EB !important;
+}
+
+/* Resume Button in Navbar */
+nav.fixed a.relative.border-primary {
+  border-color: #E5E7EB !important;
+  color: #111827 !important;
+}
+
+nav.fixed a.relative.border-primary span.text-white {
+  color: #111827 !important;
+}
+
+nav.fixed a.relative.border-primary span.bg-gradient-to-r {
+  background: linear-gradient(135deg, #2563EB, #3B82F6) !important;
+  color: #FFFFFF !important;
+}
+
+/* About Section items */
+#about .bg-white\/5 {
+  background-color: #F8FAFC !important;
+  border-color: #E5E7EB !important;
+}
+
+#about .bg-white\/5:hover {
+  border-color: rgba(37, 99, 235, 0.2) !important;
+}
+
+/* Skills icons & borders */
+#skills svg {
+  color: #2563EB !important;
+}
+
+#skills .border-b {
+  border-bottom-color: #F1F5F9 !important;
+}
+
+/* Projects tags & buttons */
+#projects .font-mono {
+  background-color: #F1F5F9 !important;
+  color: #4B5563 !important;
+  border-color: #E5E7EB !important;
+}
+
+#projects hr {
+  border-color: #F1F5F9 !important;
+}
+
+#projects a.border-white\/10 {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+  color: #4B5563 !important;
+}
+
+#projects a.border-white\/10:hover {
+  border-color: #2563EB !important;
+  color: #2563EB !important;
+  background-color: rgba(37, 99, 235, 0.05) !important;
+}
+
+#projects div.bg-white\/5 {
+  background-color: #F8FAFC !important;
+  border-color: #E5E7EB !important;
+  color: #9CA3AF !important;
+}
+
+/* Experience timeline line & tag */
+#experience hr {
+  border-color: #F1F5F9 !important;
+}
+
+/* Certifications preview cards */
+#certifications .group img {
+  border-color: #E5E7EB !important;
+}
+
+#certifications hr {
+  border-color: #F1F5F9 !important;
+}
+
+#certifications button.text-secondary {
+  color: #2563EB !important;
+}
+
+#certifications button.text-secondary:hover {
+  color: #1D4ED8 !important;
+}
+
+/* Certifications Modal */
+div.fixed.z-50.flex.items-center.justify-center .bg-\[\#0c0f20\] {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.15) !important;
+}
+
+div.fixed.z-50.flex.items-center.justify-center .bg-\[\#0c0f20\] h3,
+div.fixed.z-50.flex.items-center.justify-center .bg-\[\#0c0f20\] p,
+div.fixed.z-50.flex.items-center.justify-center .bg-\[\#0c0f20\] span {
+  color: #111827 !important;
+}
+
+div.fixed.z-50.flex.items-center.justify-center .bg-\[\#0c0f20\] .bg-white\/5 {
+  background-color: #F8FAFC !important;
+  border-color: #E5E7EB !important;
+}
+
+div.fixed.z-50.flex.items-center.justify-center .bg-\[\#0c0f20\] .bg-white\/5 span {
+  color: #6B7280 !important;
+}
+
+div.fixed.z-50.flex.items-center.justify-center .bg-\[\#0c0f20\] .bg-white\/5 span.font-semibold {
+  color: #111827 !important;
+}
+
+div.fixed.z-50.flex.items-center.justify-center .bg-\[\#0c0f20\] .bg-white\/5 span.text-green-400 {
+  color: #16A34A !important;
+}
+
+div.fixed.z-50.flex.items-center.justify-center .bg-\[\#0c0f20\] button.border-white\/10 {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+  color: #111827 !important;
+}
+
+div.fixed.z-50.flex.items-center.justify-center .bg-\[\#0c0f20\] button.border-white\/10:hover {
+  background-color: #F9FAFB !important;
+}
+
+/* Contact Inputs & Form Validation */
+#contact input,
+#contact textarea {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+  color: #111827 !important;
+}
+
+#contact input::placeholder,
+#contact textarea::placeholder {
+  color: #9CA3AF !important;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  border-color: #2563EB !important;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.5) !important;
+}
+
+/* Footer overrides */
+footer {
+  background-color: #FFFFFF !important;
+  border-top-color: #E5E7EB !important;
+}
+
+footer a.font-display {
+  color: #111827 !important;
+}
+
+footer a.font-display span.text-primary {
+  color: #2563EB !important;
+}
+
+footer p {
+  color: #6B7280 !important;
+}
+
+footer a.font-sans {
+  color: #6B7280 !important;
+}
+
+footer a.font-sans:hover {
+  color: #2563EB !important;
+}
+
+footer a.w-8.h-8 {
+  background-color: #F1F5F9 !important;
+  border-color: #E5E7EB !important;
+  color: #6B7280 !important;
+}
+
+footer a.w-8.h-8:hover {
+  color: #2563EB !important;
+  border-color: rgba(37, 99, 235, 0.3) !important;
+}
+
+/* Back to Top button override */
+button[aria-label="Back to Top"] {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  border-color: #E5E7EB !important;
+  color: #2563EB !important;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08) !important;
+}
+
+button[aria-label="Back to Top"]:hover {
+  background-color: #2563EB !important;
+  color: #FFFFFF !important;
+  border-color: #2563EB !important;
+}
+
+/* Loader Screen Override */
+div.fixed.z-\[9999\].bg-\[\#050816\] {
+  background-color: #FFFFFF !important;
+}
+
+div.fixed.z-\[9999\].bg-\[\#050816\] p {
+  color: #6B7280 !important;
+}
+
+/* Chatbot Floating Trigger Button Redesign */
+button.fixed.bottom-6.right-6.z-\[9999\] {
+  bottom: 6rem !important;
+  background: #111827 !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(37, 99, 235, 0.25) !important;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15) !important;
+  transition: all 0.3s ease !important;
+}
+
+button.fixed.bottom-6.right-6.z-\[9999\]:hover {
+  transform: scale(1.05) !important;
+}
+
+/* Chatbot Container - Permanently fixed in the bottom-right corner with consistent size across all sections */
+div.fixed.z-\[9999\].bg-\[\#0f172a\]\/95 {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(20px) !important;
+  border-color: #E5E7EB !important;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12) !important;
+  
+  /* Hard locked bottom-right spacing and size variables */
+  top: auto !important;
+  bottom: 1rem !important;
+  right: 0.5rem !important;
+  transform: none !important;
+  width: 95vw !important;
+  height: 60vh !important;
+}
+
+@media (min-width: 640px) {
+  div.fixed.z-\[9999\].bg-\[\#0f172a\]\/95 {
+    right: 1.5rem !important; /* Spacing from screen edge */
+    width: 420px !important;
+    height: 620px !important;
+  }
+}
+
+/* Chatbot Header */
+div.fixed.z-\[9999\].bg-\[\#0f172a\]\/95 .border-b {
+  border-color: #E5E7EB !important;
+}
+
+/* Chatbot Header Text */
+div.fixed.z-\[9999\].bg-\[\#0f172a\]\/95 h2 {
+  color: #111827 !important;
+}
+
+div.fixed.z-\[9999\].bg-\[\#0f172a\]\/95 svg {
+  color: #2563EB !important;
+}
+
+/* Close Button */
+div.fixed.z-\[9999\].bg-\[\#0f172a\]\/95 button {
+  color: #6B7280 !important;
+}
+
+div.fixed.z-\[9999\].bg-\[\#0f172a\]\/95 button:hover {
+  color: #111827 !important;
+}
+
+/* Chatbot Messages and Thinking */
+div.fixed.z-\[9999\].bg-\[\#0f172a\]\/95 .text-white\/60 {
+  color: #6B7280 !important;
+}
+
+/* Chatbot Suggestions */
+div.fixed.z-\[9999\].bg-\[\#0f172a\]\/95 .bg-white\/10 {
+  background: #F1F5F9 !important;
+  color: #111827 !important;
+  border: 1px solid #E5E7EB !important;
+}
+
+div.fixed.z-\[9999\].bg-\[\#0f172a\]\/95 .bg-white\/10:hover {
+  background: rgba(37, 99, 235, 0.1) !important;
+  color: #2563EB !important;
+}
+
+/* Chatbot Input Container */
+div.fixed.z-\[9999\].bg-\[\#0f172a\]\/95 .border-t {
+  border-color: #E5E7EB !important;
+}
+
+/* Input text field */
+div.fixed.z-\[9999\].bg-\[\#0f172a\]\/95 input {
+  background: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+  color: #111827 !important;
+}
+
+div.fixed.z-\[9999\].bg-\[\#0f172a\]\/95 input:focus {
+  border-color: #2563EB !important;
+}
+
+/* Redesigned Circular Send Button */
+div.fixed.z-\[9999\].bg-\[\#0f172a\]\/95 button.bg-gradient-to-r {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 9999px !important;
+  background: linear-gradient(135deg, #2563EB, #3B82F6) !important;
+  color: #FFFFFF !important;
+  border: none !important;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s ease !important;
+}
+
+div.fixed.z-\[9999\].bg-\[\#0f172a\]\/95 button.bg-gradient-to-r:hover:not(:disabled) {
+  transform: scale(1.05) !important;
+  background: linear-gradient(135deg, #1D4ED8, #2563EB) !important;
+}
+
+/* User message bubble */
+.bg-purple-600.text-white {
+  background-color: #2563EB !important;
+  color: #FFFFFF !important;
+}
+
+/* Bot message bubble */
+.bg-white\/10.text-white.border.border-white\/10 {
+  background-color: #F1F5F9 !important;
+  color: #111827 !important;
+  border-color: #E5E7EB !important;
+}
+
+/* Headings Single Text Color Override - Change all major headings to single text color #111827 */
+h1 span.text-white,
+h1 span.text-gradient-primary,
+h1 span.text-gradient-secondary,
+h2 span.text-white,
+h2 span.text-gradient-primary,
+h2 span.text-gradient-secondary,
+h3 span.text-white,
+h3 span.text-gradient-primary,
+h3 span.text-gradient-secondary,
+h1 .text-gradient-primary,
+h1 .text-gradient-secondary,
+h2 .text-gradient-primary,
+h2 .text-gradient-secondary,
+h3 .text-gradient-primary,
+h3 .text-gradient-secondary {
+  background: none !important;
+  -webkit-text-fill-color: #111827 !important;
+  color: #111827 !important;
+}
+
+/* Hero Section Spacing & Layout Alignment Updates */
+#hero .max-w-3xl {
+  max-width: 60rem !important; /* Increase content width constraint */
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+#hero .max-w-3xl p {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#hero .max-w-3xl .flex {
+  justify-content: center !important;
+  width: 100% !important;
+}
+
+/* ======================================================== */
+/* PAGE TRANSITION, SCROLL ANIMATION & STAGGER OVERRIDES */
+/* ======================================================== */
+
+/* Every section should smoothly appear when entering the viewport */
+#about,
+#skills,
+#experience,
+#projects,
+#certifications,
+#contact {
+  opacity: 1 !important;
+}
+
+/* Force custom Framer Motion transitions in CSS using !important overrides */
+#about > div,
+#skills > div,
+#experience > div,
+#projects > div,
+#certifications > div,
+#contact > div {
+  transition-property: opacity, transform !important;
+  transition-duration: 0.6s !important;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important; /* easeOut */
+}
+
+/* Cards Stagger Delay Overrides */
+#projects .glow-card:nth-child(1),
+#certifications .group:nth-child(1) {
+  transition-delay: 0.05s !important;
+  animation-delay: 0.05s !important;
+}
+
+#projects .glow-card:nth-child(2),
+#certifications .group:nth-child(2) {
+  transition-delay: 0.12s !important;
+  animation-delay: 0.12s !important;
+}
+
+#projects .glow-card:nth-child(3),
+#certifications .group:nth-child(3) {
+  transition-delay: 0.20s !important;
+  animation-delay: 0.20s !important;
+}
+
+#projects .glow-card:nth-child(4),
+#certifications .group:nth-child(4) {
+  transition-delay: 0.28s !important;
+  animation-delay: 0.28s !important;
+}
+
+/* Image Hover Zoom Transitions - slight zoom scale(1.02) */
+#projects .group img,
+#certifications .group img {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+#projects .group:hover img,
+#certifications .group:hover img {
+  transform: scale(1.02) !important;
+}

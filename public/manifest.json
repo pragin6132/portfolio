@@ -1,0 +1,15 @@
+{
+  "short_name": "Pragin Portfolio",
+  "name": "Pragin Barath - AI/ML Engineer & Full Stack Developer Portfolio",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ],
+  "start_url": ".",
+  "background_color": "#050816",
+  "theme_color": "#915EFF",
+  "display": "standalone"
+}
