@@ -76,18 +76,22 @@ export default function Navbar() {
       }`}
     >
       {/* Brand logo */}
-      <a 
-        href="#hero" 
-        onClick={(e) => handleLinkClick(e, "hero")}
-        className="font-display font-black text-xl md:text-2xl tracking-wider select-none cursor-pointer flex items-center gap-1 group"
-      >
-        <span className="text-white group-hover:text-secondary transition-colors duration-300">
-          PRAGIN BARATH M
-        </span>
-        <span className="text-primary group-hover:text-accent transition-colors duration-300">
-          
-        </span>
-      </a>
+      <a
+  href="#hero"
+  onClick={(e) => handleLinkClick(e, "hero")}
+  className="flex items-center gap-3 font-display font-black text-xl md:text-2xl tracking-wider select-none cursor-pointer group"
+>
+  <img
+    src="/logo.png"
+    alt="PB Logo"
+    className="w-9 h-9 md:w-10 md:h-10 object-contain"
+    draggable={false}
+  />
+
+  <span className="text-white group-hover:text-secondary transition-colors duration-300">
+    PRAGIN BARATH M
+  </span>
+</a>
 
       {/* Desktop Links */}
       <ul className="hidden lg:flex items-center gap-8 list-none">
