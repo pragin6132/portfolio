@@ -39,7 +39,7 @@ export const PERSONAL_INFO = {
   email: "praginbarath.m@gmail.com",
   github: "https://github.com/pragin6132",
 linkedin: "https://www.linkedin.com/in/praginbarathm",
-  resumeUrl: "/Pragin_Barath_Resume2026.pdf", // User can link their local PDF here
+  resumeUrl: "/Pragin_Barath_Resume.pdf", // User can link their local PDF here
   tagline: "Building the future of intelligence through robust AI models and clean, modern code.",
   about: {
     name: "Pragin Barath",
@@ -161,7 +161,7 @@ export const PROJECTS = [
       "AI-powered skin disease prediction platform using deep learning with a modern dashboard and real-time image analysis.",
     tech: ["React", "Node.js", "Express", "MongoDB", "TensorFlow"],
     githubUrl: "https://github.com/pragin6132/dermascan-ai",
-    liveUrl: "#",
+    liveUrl: "https://dermascan-ai-roan.vercel.app",
     image: "/projects/dermascan.png",
     glowColor: "rgba(145,94,255,0.4)"
   },
@@ -172,7 +172,7 @@ export const PROJECTS = [
       "Speech and text to sign language translation platform using NLP and animated sign language output.",
     tech: ["Flask", "Python", "JavaScript", "spaCy"],
     githubUrl: "https://github.com/pragin6132/signconnect",
-    liveUrl: "#",
+    liveUrl: "https://signconnect-ixz7.onrender.com",
     image: "/projects/speechtosign.png",
     glowColor: "rgba(0,229,255,0.4)"
   },
@@ -183,18 +183,18 @@ export const PROJECTS = [
       "Conversational chatbot capable of answering questions from multiple uploaded PDF documents using LangChain, FAISS and Gemini.",
     tech: ["LangChain", "Gemini API", "FAISS", "Flask"],
      githubUrl: "https://github.com/pragin6132/PDF_Reader",
-    liveUrl: "#",
+    liveUrl: "https://pdf-reader-pragin.streamlit.app",
     image: "/projects/multichatai.png",
     glowColor: "rgba(124,58,237,0.4)"
   },
   {
     id: 4,
-    title: "Expense Tracker",
+    title: "Expense Tracker (Android App)",
     description:
-      "Cross-platform expense tracking application with analytics dashboard and cloud synchronization.",
-    tech: ["Flutter", "Firebase"],
+  "Android expense tracking application with category-wise expense management and analytics dashboard.",
+    tech: ["Flutter", "Dart", "Provider"],
     githubUrl: "https://github.com/pragin6132/Expense_tracker",
-    liveUrl: "#",
+    liveUrl: "https://github.com/pragin6132/Expense_tracker/releases/latest/download/app-release.apk",
     image: "/projects/expancetracker.png",
     glowColor: "rgba(255,0,128,0.4)"
   }

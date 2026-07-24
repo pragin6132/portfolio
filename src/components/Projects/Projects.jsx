@@ -30,7 +30,20 @@ function ProjectCard({ project, index }) {
 
   // Calculate tilt rotations (max 8 degrees)
   const rotateX = coords.y * -16;
-  const rotateY = coords.x * 16;
+const rotateY = coords.x * 16;
+const handleDownload = (project) => {
+  if (project.title.includes("Expense Tracker")) {
+    const ok = window.confirm(
+  "This application is available only for Android devices.\n\nClick OK to download the APK."
+);
+
+    if (!ok) return;
+  }
+
+  window.open(project.liveUrl, "_blank");
+};
+
+
 
   return (
     <motion.div
@@ -104,15 +117,17 @@ function ProjectCard({ project, index }) {
             </a>
             
             {project.liveUrl && project.liveUrl !== "#" ? (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center gap-2 py-2 bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary rounded-lg text-xs font-semibold text-white cursor-pointer transition-all duration-300"
-              >
-                <FaExternalLinkAlt className="w-3 h-3" />
-                <span>Live Demo</span>
-              </a>
+              <button
+  onClick={() => handleDownload(project)}
+  className="flex-1 flex items-center justify-center gap-2 py-2 bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary rounded-lg text-xs font-semibold text-white cursor-pointer transition-all duration-300"
+>
+  <FaExternalLinkAlt className="w-3 h-3" />
+  <span>
+    {project.title.includes("Expense Tracker")
+      ? "Download APK"
+      : "Live Demo"}
+  </span>
+</button>
             ) : (
               <div
                 className="flex-1 flex items-center justify-center gap-2 py-2 bg-white/5 border border-white/5 rounded-lg text-xs font-semibold text-white/30 cursor-not-allowed select-none"

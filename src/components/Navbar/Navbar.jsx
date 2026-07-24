@@ -123,7 +123,10 @@ export default function Navbar() {
       {/* Resume CTA */}
       <div className="hidden lg:block">
         <a
-          href={"/Pragin_Barath_Resume2026.pdf"}
+          href={PERSONAL_INFO.resumeUrl}
+                            download
+                          target="_blank"
+                        rel="noopener noreferrer"
           className="relative inline-flex items-center justify-center px-6 py-2.5 overflow-hidden font-medium text-white transition duration-300 ease-out border border-primary rounded-full shadow-md group cursor-pointer"
         >
           <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-gradient-to-r from-primary to-accent group-hover:translate-x-0 ease">
@@ -175,7 +178,10 @@ export default function Navbar() {
 
             <div className="flex flex-col gap-4">
               <a
-                href={"/Pragin_Barath_Resume2026.pdf"}
+                href={PERSONAL_INFO.resumeUrl}
+download
+target="_blank"
+rel="noopener noreferrer"
                 className="w-full text-center py-3 bg-gradient-to-r from-primary to-accent text-white font-semibold rounded-xl cursor-pointer hover:shadow-[0_0_20px_rgba(145,94,255,0.4)] transition-all duration-300"
               >
                 Download Resume
