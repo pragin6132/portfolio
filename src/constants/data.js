@@ -194,7 +194,7 @@ export const PROJECTS = [
   "Android expense tracking application with category-wise expense management and analytics dashboard.",
     tech: ["Flutter", "Dart", "Provider"],
   githubUrl: "https://github.com/pragin6132/Expense_tracker",
-liveUrl: "https://github.com/pragin6132/Expense_tracker/releases/latest/download/app-release.apk",
+  liveUrl: "https://github.com/pragin6132/Expense_tracker/releases/latest/download/app-release.apk",
     image: "/projects/expancetracker.png",
     glowColor: "rgba(255,0,128,0.4)"
   }
